@@ -1,0 +1,15 @@
+
+<ion-content fullscreen>
+  <h1>¡Introduce tu nombre y comienza a chatear!</h1>
+
+  <form [formGroup]="form" (submit)="submitForm()">
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input formControlName="name"></ion-input>
+    </ion-item>
+    <div margin>
+      <ion-button type="submit" [disabled]="form.invalid" [routerLink]="'/chat/'+form.value.name">Empezar</ion-button>
+    </div>
+  </form>
+
+</ion-content>

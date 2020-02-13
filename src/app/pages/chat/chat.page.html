@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Sala de chat ({{nombre}})</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <app-mensaje *ngFor="let mensaje of mensajes; let i= index" title="{{mensaje.user}}">
+    <h2>{{mensaje.text}}</h2>
+    <h4>{{mensaje.date | date}}</h4>
+  </app-mensaje>
+
+  <form [formGroup]="form" (submit)="submitForm()">
+    <ion-item>
+      <ion-label>Mensaje</ion-label>
+      <ion-input formControlName="name"></ion-input>
+    </ion-item>
+    <div margin>
+      <ion-button type="submit" id="mensajeChat">
+        <ion-icon name="send"></ion-icon>
+      </ion-button>
+    </div>
+  </form>
+</ion-content>
